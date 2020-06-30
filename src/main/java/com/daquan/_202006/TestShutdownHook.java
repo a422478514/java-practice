@@ -9,7 +9,6 @@ public class TestShutdownHook {
 
     private static int STOP = 0;//0 ：未关闭 1：已关闭
 
-
     /**
      * 模拟正在运行着的业务
      */
@@ -59,6 +58,16 @@ public class TestShutdownHook {
         addShutDownHook();
         //执行task任务、
         Executors.newFixedThreadPool(1).submit(new Task());
+        //jdk8写法
+        Executors.newFixedThreadPool(1).submit(()->{
+                int i = 100;
+                while(true){
+                    if(STOP == 1) break;//如果jvm正在关闭，则停止执行业务
+                    for (int j = 0; j < i; j++) {
+                        System.out.println("正在执行业务"+j);
+                    }
+                }
+        });
         System.out.println("程序关闭");
     }
 }
