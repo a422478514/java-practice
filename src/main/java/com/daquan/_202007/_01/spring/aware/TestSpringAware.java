@@ -8,20 +8,23 @@ import org.springframework.context.*;
 import org.springframework.core.io.ResourceLoader;
 import org.springframework.stereotype.Service;
 
+/**
+ * 当前bean通过实现多个XxxxxXxxxxAware接口，来注入XxxxxXxxxx的bean实例，待spring容器初始化完成后，变量中的xxxxxXxxxx就有值了，可以直接访问(使用)
+ */
 @Service
 public class TestSpringAware implements ApplicationContextAware, BeanNameAware, BeanFactoryAware, MessageSourceAware, ApplicationEventPublisherAware, ResourceLoaderAware {
 
-    private ApplicationContext applicationContext;
+    private ApplicationContext applicationContext;//spring容器核心上下文
 
-    private BeanFactory beanFactory;
+    private BeanFactory beanFactory;//IOC容器
 
-    private String s;
+    private String s;//当前bean在IOC容器中的Bean的实例的名字
 
-    private ApplicationEventPublisher applicationEventPublisher;
+    private ApplicationEventPublisher applicationEventPublisher;//在bean中可以得到应用上下文的事件发布器
 
-    private MessageSource messageSource;
+    private MessageSource messageSource;//在Bean中可以得到消息源
 
-    private ResourceLoader resourceLoader;
+    private ResourceLoader resourceLoader;//在Bean中可以得到ResourceLoader，从而加载外部对应的Resource资源
 
     //在Bean中得到Bean所在的应用上下文
     @Override
