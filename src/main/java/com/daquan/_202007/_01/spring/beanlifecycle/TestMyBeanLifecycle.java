@@ -9,5 +9,10 @@ public class TestMyBeanLifecycle {
         MyBean myBean = (MyBean) classPathXmlApplicationContext.getBean("myBean");
         //执行下优雅关机，否则bean的destroy方法不会被调用
         classPathXmlApplicationContext.registerShutdownHook();
+        String s = null;
+        StringBuilder sb = new StringBuilder();
+        sb.append(s);
+        System.out.println(sb);
+        String.valueOf(null);
     }
 }

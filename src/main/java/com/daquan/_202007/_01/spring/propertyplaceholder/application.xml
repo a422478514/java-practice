@@ -10,8 +10,16 @@
     <context:annotation-config />
     <!--自动扫描含有@Service将其注入为bean -->
     <context:component-scan base-package="com.daquan._202007._01.spring.propertyplaceholder" />
-    <!--注入属性值-->
-    <!--<context:property-placeholder location="classpath:placeholder.properties"  />-->
+    <!--注入属性值，xml方式实现，注入单个文件配置-->
+    <context:property-placeholder location="classpath:placeholder.properties"  />
+    <!--以下为注入多个文件配置-->
+    <!--<bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="locations">
+            <list>
+                <value>classpath:placeholder.properties</value>
+            </list>
+        </property>
+    </bean>-->
 
     <bean id="myPropertyServiceBean" class="com.daquan._202007._01.spring.propertyplaceholder.XmlMyPropertyServiceBean">
         <property name="id" value="${id}"/>
