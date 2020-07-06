@@ -5,7 +5,9 @@ import org.springframework.beans.PropertyValues;
 import org.springframework.beans.factory.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.config.BeanPostProcessor;
+import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
 import org.springframework.beans.factory.config.InstantiationAwareBeanPostProcessor;
+import org.springframework.beans.factory.support.DefaultListableBeanFactory;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
@@ -34,6 +36,8 @@ public class MyBean implements BeanPostProcessor, InstantiationAwareBeanPostProc
 
     @Override
     public void setBeanFactory(BeanFactory beanFactory) throws BeansException {
+        DefaultListableBeanFactory beanFactory1 = (DefaultListableBeanFactory) beanFactory;
+        beanFactory1.setAllowCircularReferences(false);
         System.out.println("setBeanFactory");
     }
 
