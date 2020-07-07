@@ -1,5 +1,6 @@
 package com.daquan._202007._01.spring.aop;
 
+import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.*;
 
 @Aspect
@@ -42,5 +43,25 @@ public class Audience {
     @AfterThrowing("execution(* com.daquan._202007._01.spring.aop.Performance.perform(..))")
     public void demandRefund() {
         System.out.println("Demanding a refund");
+    }
+
+    /**
+     * 环绕通知
+     * @param joinPoint
+     */
+    @Around("execution(* com.daquan._202007._01.spring.aop.Performance.perform(..))")
+    public void watchPerform(ProceedingJoinPoint joinPoint) {
+        try {
+            System.out.println("watchPerform Taking seats");
+            System.out.println("watchPerform Silencing cell phones");
+
+            joinPoint.proceed();
+
+            System.out.println("watchPerform CLAP CLAP CLAP!!!");
+        } catch (Throwable throwable) {
+            System.out.println("watchPerform Demanding a refund");
+        } finally {
+            System.out.println("watchPerform perform finish");
+        }
     }
 }

@@ -9,5 +9,16 @@
 
     <context:annotation-config />
     <!--自动扫描含有@Service将其注入为bean -->
+<<<<<<< HEAD
     <context:component-scan base-package="com.daquan._202007._01.spring.aop" />
+=======
+    <context:component-scan base-package="com.daquan._202007._01.spring.propertyplaceholder" />
+    <!--注入属性值-->
+    <!--<context:property-placeholder location="classpath:placeholder.properties"  />-->
+
+    <bean id="myPropertyServiceBean" class="com.daquan._202007._01.spring.propertyplaceholder.XmlMyPropertyServiceBean">
+        <property name="id" value="${id}"/>
+        <property name="name" value="${name}"/>
+    </bean>
+>>>>>>> 015330fa6c8ddf827a25c8cf15824100af5a1a08
 </beans>
