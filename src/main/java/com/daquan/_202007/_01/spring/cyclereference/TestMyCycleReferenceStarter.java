@@ -12,5 +12,7 @@ public class TestMyCycleReferenceStarter {
         //xml方式
         MyDemoA myDemoA = (MyDemoA) classPathXmlApplicationContext.getBean("myDemoA");
         myDemoA.sayHello();
+        MyDemoB myDemoB = (MyDemoB) classPathXmlApplicationContext.getBean("myDemoB");
+        myDemoB.sayHello();
     }
 }

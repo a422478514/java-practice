@@ -9,6 +9,6 @@ public class MyDemoA {
     private MyDemoB demoB;
 
     public void sayHello(){
-        System.out.println("sayHello");
+        System.out.println("sayHello A");
     }
 }
