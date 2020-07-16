@@ -9,13 +9,5 @@
  ">
     <context:annotation-config/>
     <!--自动扫描含有@Service将其注入为bean -->
-    <context:component-scan base-package="com.daquan._202007._01.spring.factory"/>
-    <!--通过xml配置Bean-->
-    <!--通过工厂的静态方法配置Car的实例-->
-    <!--<bean id="carStatic" class="com.daquan._202007._01.spring.factory.CarFactory" factory-method="createCar"/>-->
-    <!--通过工厂的非静态方法配置Car的实例-->
-    <!--<bean id="carFactory" class="com.daquan._202007._01.spring.factory.CarFactory" />
-    <bean id="carStatic" factory-bean="carFactory" factory-method="getCar"/>-->
-    <!--通过FactoryBean配置Car的实例-->
-    <bean id="car" class="com.daquan._202007._01.spring.factory.CarFactoryBean" carInfo="wuling" />
+    <context:component-scan base-package="com.daquan._202007._01.spring.cyclereference"/>
 </beans>
