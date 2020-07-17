@@ -44,6 +44,10 @@
             <artifactId>spring-tx</artifactId>
             <version>5.2.7.RELEASE</version>
         </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+        </dependency>
 
     </dependencies>
 </project>
