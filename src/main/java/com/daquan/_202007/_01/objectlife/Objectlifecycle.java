@@ -7,4 +7,7 @@ public class Objectlifecycle {
         System.out.println(i++);
     }
 
+    Objectlifecycle(){
+        System.out.println("Objectlifecycle");
+    }
 }
