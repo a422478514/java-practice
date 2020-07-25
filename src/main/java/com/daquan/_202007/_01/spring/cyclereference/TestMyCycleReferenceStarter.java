@@ -8,7 +8,9 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class TestMyCycleReferenceStarter {
     public static void main(String[] args) {
         System.out.println("加载spring容器");
-        ClassPathXmlApplicationContext classPathXmlApplicationContext = new ClassPathXmlApplicationContext("application.xml");
+        ClassPathXmlApplicationContext classPathXmlApplicationContext = new ClassPathXmlApplicationContext(new String[]{"application.xml"},false,null);
+        classPathXmlApplicationContext.setAllowCircularReferences(true);
+        classPathXmlApplicationContext.refresh();
         //xml方式
         MyDemoA myDemoA = (MyDemoA) classPathXmlApplicationContext.getBean("myDemoA");
         myDemoA.sayHello();
