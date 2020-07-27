@@ -8,5 +8,6 @@ public class TestHashMap {
         System.out.println(map.size());
         map.put("1","2");
         System.out.println(123);
+
     }
 }
