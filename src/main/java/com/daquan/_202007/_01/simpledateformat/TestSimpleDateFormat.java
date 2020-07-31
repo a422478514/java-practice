@@ -1,10 +1,12 @@
 package com.daquan._202007._01.simpledateformat;
 
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.concurrent.CountDownLatch;
 
+/**
+ * 2020年07月27日 新增判断dateformat是非线程安全的
+ */
 public class TestSimpleDateFormat {
     public static void main(String[] args) throws InterruptedException {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
